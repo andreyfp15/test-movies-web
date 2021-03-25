@@ -5,7 +5,7 @@ import { IndexComponent } from './index/index.component';
 import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: DetailsComponent },
   { path: 'index', component: IndexComponent },
   { path: 'details', component: DetailsComponent },
 ];
