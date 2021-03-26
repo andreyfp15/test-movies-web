@@ -1,64 +1,44 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="input-group mt-3 mb-1">
-            <input type="text" class="form-control" placeholder="Nome do filme">
-            <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" (click)="search()">Pesquisar</button>
-            </div>
-        </div>
-    </div>
+<form (ngSubmit)="search()">
 
-    <div class="col-md-12">
-        <hr/>
-        <span class="text-secondary">Mostrando: 3 de 3265</span>
-    </div>
+    <div class="row">
 
-    <div class="col-md-3 mt-3">
-        <div class="card shadow" style="cursor: pointer;">
-            <img class="card-img-top" src="https://image.tmdb.org/t/p/original/qsNOb119zUplzxWYZdxN1x8GxdI.jpg"
-                alt="Card image cap" style="height: 200px; object-fit: cover;">
-            <div class="card-body" style="padding: 0.7 !important;">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
+        <div class="col-md-12">
+            <div class="input-group mt-3 mb-1">
+                <input type="text" class="form-control" name="txtQuery" placeholder="Nome do filme" [(ngModel)]="query"
+                    (ngModelChange)="changeQuery()" />
+                <div class="input-group-append">
+                    <button class="btn btn-secondary" type="submit">Pesquisar</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3 mt-3">
-        <div class="card shadow" style="cursor: pointer;">
-            <img class="card-img-top" src="https://image.tmdb.org/t/p/original/qsNOb119zUplzxWYZdxN1x8GxdI.jpg"
-                alt="Card image cap" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3  mt-3" style="cursor: pointer;">
-        <div class="card shadow">
-            <img class="card-img-top" src="https://image.tmdb.org/t/p/original/qsNOb119zUplzxWYZdxN1x8GxdI.jpg"
-                alt="Card image cap" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 mt-3">
-        <div class="card shadow" style="cursor: pointer;">
-            <img class="card-img-top" src="https://image.tmdb.org/t/p/original/qsNOb119zUplzxWYZdxN1x8GxdI.jpg"
-                alt="Card image cap" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="col-md-12 mt-4 mb-5">
-        <button class="btn btn-secondary btn-block" type="button">Mostrar mais resultados</button>
+        <div class="col-md-12">
+            <hr />
+            <span class="text-secondary" *ngIf="returnApi.results.length > 0">Mostrando: {{returnApi.results.length}} de
+                {{returnApi.total_results | number}}</span>
+            <span class="text-secondary" *ngIf="returnApi.results.length == 0">Nenhum resultado no momento.</span>
+        </div>
+
+        <div class="col-md-2 mt-3" *ngFor="let movie of returnApi.results; let i = index"
+            title="{{movie.original_title}}" (click)="detailMovie(movie.id)">
+            <div class="card shadow" style="cursor: pointer;">
+                <img class="card-img-top" src="../../../assets/images/no_photo.png" *ngIf="movie.poster_path == null"
+                    alt="image" style="height: 200px; object-fit: cover;" />
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}"
+                    *ngIf="movie.poster_path != null" alt="image" style="height: 200px; object-fit: cover;">
+                <div class="card-body" style="padding: 0.7 !important;">
+                    <p>
+                        <span *ngIf="movie.original_title.length > 13">{{
+                            movie.original_title.substring(0,13)}}...</span>
+                        <span *ngIf="movie.original_title.length < 13">{{ movie.original_title}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mt-4 mb-5" *ngIf="page < returnApi.total_pages && !queryChanged">
+            <button class="btn btn-secondary btn-block" type="button" (click)="showMoreResults()">Mostrar mais
+                resultados</button>
+        </div>
     </div>
-</div>
+</form>
