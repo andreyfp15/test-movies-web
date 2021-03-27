@@ -27,7 +27,7 @@ $ git clone <https://github.com/andreyfp15/test-movies-web>
 
 ### Rodando o projeto
   
-Executar ng serve. Navegue para http: // localhost: 4200 /. O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
+Executar ng serve. Navegue para [localhost: 4200] (http: // localhost: 4200). O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
 
 ### Feito por
