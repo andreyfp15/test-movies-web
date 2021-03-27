@@ -28,7 +28,8 @@ $ git clone <https://github.com/andreyfp15/test-movies-web>
 ### Rodando o projeto
   
     Para executar este aplicativo em seu navegador, basta iniciar tudo com o comentário abaixo na pasta raiz do aplicativo. Ele irá atualizar tudo e iniciar um servidor web simples em [localhost: 4200] (http: // localhost: 4200).
-        ```bash
+
+    ```bash
     ng serve
     ```
 
