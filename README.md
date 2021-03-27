@@ -32,6 +32,7 @@ $ git clone <https://github.com/andreyfp15/test-movies-web>
     ```bash
     ng serve
     ```
+    
 
 ### Feito por
   Andrey Pereira
