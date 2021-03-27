@@ -11,12 +11,13 @@ Projeto web que é responsavel por mostrar os filmes da API https://www.themovie
 
 ### Pré-requisitos
 
-1. Install [Node.js](https://nodejs.org)
-2. Install Angular CLI by running the following command:
+1. Estar com a API: test-movies-web rodando. Repositório : <https://github.com/andreyfp15/test-movies-web>  
+2. Install [Node.js](https://nodejs.org)
+3. Install Angular CLI by running the following command:
   ```bash
   npm i -g @angular/cli
   ```
-3. From project root folder install all the dependencies by running the following command inside your terminal:
+4. From project root folder install all the dependencies by running the following command inside your terminal:
   ```bash
   npm install
   ```
@@ -26,7 +27,7 @@ Projeto web que é responsavel por mostrar os filmes da API https://www.themovie
 $ git clone <https://github.com/andreyfp15/test-movies-web>
 
 ### Rodando o projeto
-  
+
 Executar ng serve. Navegue para [localhost: 4200] (http: // localhost: 4200). O aplicativo será recarregado automaticamente se você alterar qualquer um dos arquivos de origem.
 
 
